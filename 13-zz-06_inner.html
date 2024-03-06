@@ -1,0 +1,98 @@
+<!-- innerHTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla </title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+    <div id="numeros">
+         <input type="number" id="limiteInferior" placeholder="Introduce limite inferior">
+         <input type="number" id="limiteSuperior" placeholder="Introduce limite superior">
+         <button type="button" id="btn" onClick="tablaMult()">Enviar</button>
+    </div>
+    <!-- conenedor para las tablas (vacio inicialmente)-->
+    <div id="tablas">
+
+    </div>
+
+
+<script>
+    //  innerHTML
+
+    function tablaMult() {
+        console.log('📘');
+        lInferior = document.getElementById("limiteInferior").value;
+        lSuperior = document.getElementById("limiteSuperior").value;
+        datosValidos = true;
+        if  ( parseInt(lInferior) >= parseInt(lSuperior)) 
+        {
+            tError += 'asegúrate de que el límite inferior es menor que el límite superior<br>';
+            datosValidos = false;
+        } 
+        if (datosValidos) {
+                let resultado ='';
+                const cTablas = document.getElementById("tablas");
+                console.log('📙 '+ cTablas);
+                for (i=lInferior;i<=lSuperior;i++) {
+                    resultado+=`<h2>Tabla de multiplicación del número ${i} </h2>`;
+                    console.log('📒 '+ cTablas);
+                    resultado+=`<table>
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>x</th>
+                                <th>Factor</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+                
+                        numero = i;
+                        for (j=1;j<=10;j++){
+                            resultado+=`
+                            <tr>
+                                <td>${numero}</td>
+                                <td>x</td>
+                                <td>${j}</td>
+                                <td>${numero*j}</td>
+                            </tr>`;
+                        }
+                        resultado+=`        
+                            <!-- Añade aquí más filas según sea necesario -->
+                            </tbody>
+                            </table>`;
+                }
+                alert(resultado);
+                cTablas.innerHTML = resultado;
+            } else {
+                // datos no validos 
+                 
+                alert (tError);
+                //document.write(tError);
+            }
+    }
+
+    
+    
+    
+</script>
+</body>
+</html>

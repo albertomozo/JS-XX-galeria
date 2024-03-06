@@ -1,3 +1,4 @@
+<!-- meter input en vez de prompt-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,32 +23,27 @@
 </style>
 </head>
 <body>
+    <div id="numeros">
+         <input type="number" id="limiteInferior" placeholder="Introduce limite inferior">
+         <input type="number" id="limiteSuperior" placeholder="Introduce limite superior">
+         <button type="button" id="btn" onClick="tablaMult()">Enviar</button>
+    </div>
+
+
 <script>
-    let limiteInferior = prompt("Introduce el límite inferior:");
-    let limiteSuperior = prompt("Introduce el límite superior:");
-    /*inicializacion de variable */
-    let datosValidos = true;
-    let tError= '';
-    // Comprobar que los valores introducidos son números y que el valor inferior es más pequeño que el superior
-    if (isNaN(limiteInferior))
-    { 
-        tError += 'limite inferior no es un numero<br>';
-        datosValidos = false;
-    }  
-    if (isNaN(limiteSuperior)) {
-        tError += 'limite superior no es un numero<br>';
-        datosValidos = false;
-    }  
-    console.log (`inferior ${parseInt(limiteInferior)}`);
-    console.log (`superior ${parseInt(limiteSuperior)}`);
-    if  ( parseInt(limiteInferior) >= parseInt(limiteSuperior)) 
-    {
-        tError += 'asegúrate de que el límite inferior es menor que el límite superior<br>';
-        datosValidos = false;
-    } 
-        
-    if (datosValidos) {
-                for (i=limiteInferior;i<=limiteSuperior;i++) {
+    // Al meter la lógica en un afunción los document.write, quitan los estilos y fuerzan un nuevo DOM. En el siguente ejercicio vamos a sustituirlos por innerHTML
+
+    function tablaMult() {
+        lInferior = document.getElementById("limiteInferior").value;
+        lSuperior = document.getElementById("limiteSuperior").value;
+        datosValidos = true;
+        if  ( parseInt(lInferior) >= parseInt(lSuperior)) 
+        {
+            tError += 'asegúrate de que el límite inferior es menor que el límite superior<br>';
+            datosValidos = false;
+        } 
+        if (datosValidos) {
+                for (i=lInferior;i<=lSuperior;i++) {
                     document.write('<h2>Tabla de multiplicación del número ' +i +' </h2>');
 
                     document.write(`<table>
@@ -82,7 +78,10 @@
                 alert (tError);
                 document.write(tError);
             }
-        
+    }
+
+    
+    
     
 </script>
 </body>
