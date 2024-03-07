@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla de multiplicación del número 1</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+<script>
+    limite = 10;
+    for (i=1;i<=limite;i++) {
+        document.write('<h2>Tabla de multiplicación del número ' +i +' </h2>');
+
+        document.write(`<table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>x</th>
+                    <th>Factor</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>`);
+    
+            numero = i;
+            for (j=1;j<=10;j++){
+                document.write(`
+                <tr>
+                    <td>${numero}</td>
+                    <td>x</td>
+                    <td>${j}</td>
+                    <td>${numero*j}</td>
+                </tr>`);
+            }
+            document.write(`        
+                <!-- Añade aquí más filas según sea necesario -->
+                </tbody>
+                </table>`);
+    }
+</script>
+</body>
+</html>

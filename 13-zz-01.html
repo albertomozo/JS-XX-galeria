@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla de multiplicación del número 1</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    td{
+        width :200px;
+    }
+</style>
+</head>
+<body>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>x</th>
+            <th>Factor</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+    <script>
+       /*  numero = 8; */
+       numero = prompt("de que numero quieres la tabla de multiplicar");
+       /* metodo con <input */
+        for (i=1;i<=10;i++){
+            document.write(`
+               <tr>
+                <td>${numero}</td>
+                <td>x</td>
+                <td>${i}</td>
+                <td>${numero*i}</td>
+            </tr>`);
+        }
+     </script>
+        
+        
+        <!-- Añade aquí más filas según sea necesario -->
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!-- meter input en vez de prompt-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla de multiplicación del número 1</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+    <div id="numeros">
+         <input type="number" id="limiteInferior" placeholder="Introduce limite inferior">
+         <input type="number" id="limiteSuperior" placeholder="Introduce limite superior">
+         <button type="button" id="btn" onClick="tablaMult()">Enviar</button>
+    </div>
+
+
+<script>
+    // Al meter la lógica en un afunción los document.write, quitan los estilos y fuerzan un nuevo DOM. En el siguente ejercicio vamos a sustituirlos por innerHTML
+
+    function tablaMult() {
+        lInferior = document.getElementById("limiteInferior").value;
+        lSuperior = document.getElementById("limiteSuperior").value;
+        datosValidos = true;
+        if  ( parseInt(lInferior) >= parseInt(lSuperior)) 
+        {
+            tError += 'asegúrate de que el límite inferior es menor que el límite superior<br>';
+            datosValidos = false;
+        } 
+        if (datosValidos) {
+                for (i=lInferior;i<=lSuperior;i++) {
+                    document.write('<h2>Tabla de multiplicación del número ' +i +' </h2>');
+
+                    document.write(`<table>
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>x</th>
+                                <th>Factor</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>`);
+                
+                        numero = i;
+                        for (j=1;j<=10;j++){
+                            document.write(`
+                            <tr>
+                                <td>${numero}</td>
+                                <td>x</td>
+                                <td>${j}</td>
+                                <td>${numero*j}</td>
+                            </tr>`);
+                        }
+                        document.write(`        
+                            <!-- Añade aquí más filas según sea necesario -->
+                            </tbody>
+                            </table>`);
+                }
+            } else {
+                // datos no validos 
+                 
+                alert (tError);
+                document.write(tError);
+            }
+    }
+
+    
+    
+    
+</script>
+</body>
+</html>
