@@ -61,12 +61,13 @@ pre {
     // for que lee un array
     let botones = '';
     //const galeria = ['foto01.jpg', 'foto02.jpg', 'foto03.jpg', 'foto04.jpg'];
-    const galeria = ['hortensia.jpg', 'koala.jpg', 'paisaje.jpg', 'pinguinos.jpg'];
+    const galeria = [  'paisaje.jpg', 'pinguinos.jpg','foto01.jpg','foto02.jpg','foto03.jpg','foto04.jpg','koala.jpg','flores.jpg'];
     console.log(`📒secuencia de 1 a ${galeria.length}`)
     for (let i = 0; i < galeria.length ; i++){
         botones += `<button onclick="cambiarFoto('img/${galeria[i]}')" class="botonera">${galeria[i]}</button>`
 
     }
+    document.getElementById('foto').src = 'img/' + galeria[0];
 
     // en nuestro caso concreto
 

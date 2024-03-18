@@ -65,6 +65,7 @@ pre {
     //const galeria = ['foto01.jpg', 'foto02.jpg', 'foto03.jpg', 'foto04.jpg'];
     const galeria = ['hortensia.jpg', 'koala.jpg', 'paisaje.jpg', 'pinguinos.jpg'];
     const galeriaTexto = ['hortensia Azul', 'koala Australiano', 'Paisaje', 'Pingüinos bailando'];
+    const galeriaBorde = ['red', 'green', 'blue', 'Yellow','black'];
     console.log(`📒secuencia de 1 a ${galeria.length}`)
     for (let i = 0; i < galeria.length ; i++){
         botones += `<button onclick="cambiarFoto(${i})" class="botonera">${galeria[i]}</button>`
@@ -87,6 +88,8 @@ pre {
 		console.log('poner imagen ' + id + ' en foto');
 		document.getElementById('foto').src=`img/${galeria[id]}`;
         document.getElementById("fotoTitulo").innerHTML = galeriaTexto[id];
+        document.getElementById('foto').style.border=`
+        3px solid ${galeriaBorde[id]}`;
 	}
 </script>
 </body>
